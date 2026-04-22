@@ -1,0 +1,14 @@
+.vscode/**
+.vscode-test/**
+.claude/**
+.github/**
+src/**
+out/**/*.map
+out/**/*.ts
+**/tsconfig.json
+**/.gitignore
+.env
+.env.*
+!.env.example
+package-lock.json
+*.vsix

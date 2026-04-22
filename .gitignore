@@ -1,6 +1,7 @@
-node_modules
-.env.local:1
-.env.local
+node_modules/
+out/
+*.vsix
 .env
-.env.local
-.env
+.env.*
+!.env.example
+.vscode-test/
