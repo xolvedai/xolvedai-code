@@ -8,14 +8,32 @@
   "engines": {
     "vscode": "^1.85.0"
   },
-  "categories": ["AI", "Programming Languages", "Snippets", "Other"],
-  "keywords": ["xai", "xolvedai", "grok", "agentic", "tool-calling", "vision", "cline", "multi-file", "fullstack", "github-app"],
+  "categories": [
+    "AI",
+    "Programming Languages",
+    "Snippets",
+    "Other"
+  ],
+  "keywords": [
+    "xai",
+    "xolvedai",
+    "grok",
+    "agentic",
+    "tool-calling",
+    "vision",
+    "cline",
+    "multi-file",
+    "fullstack",
+    "github-app"
+  ],
   "icon": "assets/logo.png",
   "galleryBanner": {
     "color": "#0a0a0a",
     "theme": "dark"
   },
-  "activationEvents": ["onStartupFinished"],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "main": "./out/extension.js",
   "repository": {
     "type": "git",
@@ -41,7 +59,11 @@
         "coding-intelligence-x-xolvedai.model": {
           "type": "string",
           "default": "grok-4.20-reasoning",
-          "enum": ["grok-4.20-reasoning", "grok-4.20-non-reasoning", "grok-4-1-fast-reasoning"],
+          "enum": [
+            "grok-4.20-reasoning",
+            "grok-4.20-non-reasoning",
+            "grok-4-1-fast-reasoning"
+          ],
           "description": "Default Grok model"
         }
       }
@@ -57,9 +79,9 @@
     "openai": "^4.85.0"
   },
   "devDependencies": {
+    "@types/node": "^20.19.39",
     "@types/vscode": "^1.85.0",
-    "@types/node": "^20.17.0",
-    "typescript": "^5.7.0",
-    "@vscode/vsce": "^3.2.0"
+    "@vscode/vsce": "^3.2.0",
+    "typescript": "^5.7.0"
   }
 }

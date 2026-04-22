@@ -70,12 +70,12 @@ async function executeTool(name: string, args: any, panel: vscode.WebviewPanel):
 }
 
 export function activate(context: vscode.ExtensionContext) {
-  console.log('✅ XolvedAI Code v1.8.0 — Full Premium Agent Active');
+  console.log('✅ Coding Intelligence x XolvedAI v1.9.2 — Full Premium Agent Active');
 
-  const startChat = vscode.commands.registerCommand('xolvedai-code.startChat', () => {
+  const startChat = vscode.commands.registerCommand('coding-intelligence-x-xolvedai.startChat', () => {
     const panel = vscode.window.createWebviewPanel(
-      'xolvedaiChat',
-      'XolvedAI Agent Chat',
+      'codingIntelligenceChatView',
+      'Coding Intelligence x XolvedAI',
       vscode.ViewColumn.Beside,
       { enableScripts: true, retainContextWhenHidden: true }
     );
@@ -151,7 +151,7 @@ function getWebviewContent(): string {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>XolvedAI Code</title>
+  <title>Coding Intelligence x XolvedAI</title>
   <style>
     :root { --cyan: #00d4ff; --purple: #a020f0; --green: #00ff9d; }
     body { font-family: system-ui; margin: 0; padding: 0; background: #0a0a0a; color: #fff; height: 100vh; display: flex; flex-direction: column; background: linear-gradient(135deg, #0a0a0a, #1a0033); }
@@ -175,7 +175,7 @@ function getWebviewContent(): string {
   <div id="header">
     <div style="display:flex;align-items:center;gap:10px">
       <span style="font-size:22px">∞</span>
-      <span style="font-weight:800">XolvedAI Code</span>
+      <span style="font-weight:800">Coding Intelligence x XolvedAI</span>
       <span style="background:#112211;color:var(--green);padding:2px 8px;border-radius:9999px;font-size:10px">Grok 4.20</span>
     </div>
     <div>
