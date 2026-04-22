@@ -13,7 +13,7 @@ function getClient(): OpenAI {
 }
 
 export function activate(context: vscode.ExtensionContext) {
-  console.log('✅ Coding Intelligence x XolvedAI v1.9.4 Active');
+  console.log('✅ Coding Intelligence x XolvedAI v1.9.5 Active');
 
   const startChat = vscode.commands.registerCommand('coding-intelligence-x-xolvedai.startChat', () => {
     const panel = vscode.window.createWebviewPanel(

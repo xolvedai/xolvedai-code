@@ -51,7 +51,7 @@ function getClient() {
     return client;
 }
 function activate(context) {
-    console.log('✅ Coding Intelligence x XolvedAI v1.9.4 Active');
+    console.log('✅ Coding Intelligence x XolvedAI v1.9.5 Active');
     const startChat = vscode.commands.registerCommand('coding-intelligence-x-xolvedai.startChat', () => {
         const panel = vscode.window.createWebviewPanel('codingIntelligenceChatView', 'Coding Intelligence x XolvedAI', vscode.ViewColumn.Beside, { enableScripts: true, retainContextWhenHidden: true });
         panel.webview.html = getWebviewContent();
