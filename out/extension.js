@@ -50,7 +50,7 @@ function getClient() {
     if (!client) {
         const apiKey = process.env.XAI_API_KEY;
         if (!apiKey)
-            throw new Error('XAI_API_KEY not set. Add it in terminal or Codespace secrets.');
+            throw new Error('XAI_API_KEY not set');
         client = new openai_1.default({ apiKey, baseURL: 'https://api.x.ai/v1' });
     }
     return client;

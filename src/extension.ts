@@ -11,7 +11,7 @@ let pendingEdit: any = null;
 function getClient(): OpenAI {
   if (!client) {
     const apiKey = process.env.XAI_API_KEY;
-    if (!apiKey) throw new Error('XAI_API_KEY not set. Add it in terminal or Codespace secrets.');
+    if (!apiKey) throw new Error('XAI_API_KEY not set');
     client = new OpenAI({ apiKey, baseURL: 'https://api.x.ai/v1' });
   }
   return client;
