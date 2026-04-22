@@ -2,14 +2,19 @@
   "name": "coding-intelligence-x-xolvedai",
   "displayName": "Coding Intelligence x XolvedAI",
   "publisher": "xolvedai",
-  "version": "1.9.0",
+  "version": "1.9.1",
   "description": "Premium xAI Grok-powered agent for full-stack GitHub app development. Multi-file batch editing, native tool calling, vision, approval workflows, Plan/Act mode. Powered by Grok 4.20-reasoning.",
   "license": "MIT",
-  "engines": { "vscode": "^1.85.0" },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
   "categories": ["AI", "Programming Languages", "Snippets", "Other"],
   "keywords": ["xai", "xolvedai", "grok", "agentic", "tool-calling", "vision", "cline", "multi-file", "fullstack", "github-app"],
   "icon": "assets/logo.png",
-  "galleryBanner": { "color": "#0a0a0a", "theme": "dark" },
+  "galleryBanner": {
+    "color": "#0a0a0a",
+    "theme": "dark"
+  },
   "activationEvents": ["onStartupFinished"],
   "main": "./out/extension.js",
   "repository": {
@@ -18,10 +23,17 @@
   },
   "contributes": {
     "commands": [
-      { "command": "coding-intelligence-x-xolvedai.startChat", "title": "Coding Intelligence x XolvedAI: Open Agent Chat" }
+      {
+        "command": "coding-intelligence-x-xolvedai.startChat",
+        "title": "Coding Intelligence x XolvedAI: Open Agent Chat"
+      }
     ],
     "keybindings": [
-      { "command": "coding-intelligence-x-xolvedai.startChat", "key": "ctrl+shift+g", "mac": "cmd+shift+g" }
+      {
+        "command": "coding-intelligence-x-xolvedai.startChat",
+        "key": "ctrl+shift+g",
+        "mac": "cmd+shift+g"
+      }
     ],
     "configuration": {
       "title": "Coding Intelligence x XolvedAI",
@@ -35,10 +47,21 @@
       }
     },
     "viewsContainers": {
-      "activitybar": [{ "id": "coding-intelligence-x-xolvedai", "title": "Coding Intelligence x XolvedAI", "icon": "assets/logo.png" }]
+      "activitybar": [
+        {
+          "id": "coding-intelligence-x-xolvedai",
+          "title": "Coding Intelligence x XolvedAI",
+          "icon": "assets/logo.png"
+        }
+      ]
     },
     "views": {
-      "coding-intelligence-x-xolvedai": [{ "id": "xolvedaiChatView", "name": "Agent Chat" }]
+      "coding-intelligence-x-xolvedai": [
+        {
+          "id": "codingIntelligenceChatView",
+          "name": "Agent Chat"
+        }
+      ]
     }
   },
   "scripts": {
@@ -47,7 +70,9 @@
     "watch": "tsc -watch -p ./",
     "package": "vsce package"
   },
-  "dependencies": { "openai": "^4.85.0" },
+  "dependencies": {
+    "openai": "^4.85.0"
+  },
   "devDependencies": {
     "@types/vscode": "^1.85.0",
     "@types/node": "^20.17.0",
