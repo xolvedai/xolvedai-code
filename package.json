@@ -2,7 +2,7 @@
   "name": "coding-intelligence-x-xolvedai",
   "displayName": "Coding Intelligence x XolvedAI",
   "publisher": "xolvedai",
-  "version": "1.9.1",
+  "version": "1.9.2",
   "description": "Premium xAI Grok-powered agent for full-stack GitHub app development. Multi-file batch editing, native tool calling, vision, approval workflows, Plan/Act mode. Powered by Grok 4.20-reasoning.",
   "license": "MIT",
   "engines": {
@@ -45,23 +45,6 @@
           "description": "Default Grok model"
         }
       }
-    },
-    "viewsContainers": {
-      "activitybar": [
-        {
-          "id": "coding-intelligence-x-xolvedai",
-          "title": "Coding Intelligence x XolvedAI",
-          "icon": "assets/logo.png"
-        }
-      ]
-    },
-    "views": {
-      "coding-intelligence-x-xolvedai": [
-        {
-          "id": "codingIntelligenceChatView",
-          "name": "Agent Chat"
-        }
-      ]
     }
   },
   "scripts": {
