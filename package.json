@@ -2,45 +2,25 @@
   "name": "coding-intelligence-x-xolvedai",
   "displayName": "Coding Intelligence x XolvedAI",
   "publisher": "xolvedai",
-  "version": "1.9.8",
-  "description": "Premium xAI Grok-powered agent for full-stack GitHub app development. Multi-file batch editing, native tool calling, vision, approval workflows, Plan/Act mode.",
+  "version": "1.10.0",
+  "description": "Grok-powered coding agent with full XolvedAI persistent memory. Reads XolvedAI-Coding.md automatically — exactly like Claude Code.",
   "license": "MIT",
   "engines": { "vscode": "^1.85.0" },
   "categories": ["AI", "Programming Languages", "Snippets", "Other"],
-  "keywords": ["xai", "xolvedai", "grok", "agentic", "tool-calling", "vision", "cline", "multi-file", "fullstack"],
+  "keywords": ["xai", "xolvedai", "grok", "agentic", "persistent-memory"],
   "icon": "assets/logo.png",
   "galleryBanner": { "color": "#0a0a0a", "theme": "dark" },
   "activationEvents": ["onStartupFinished"],
   "main": "./out/extension.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/xolvedai/xolvedai-code.git"
-  },
+  "repository": { "type": "git", "url": "https://github.com/xolvedai/xolvedai-code.git" },
   "contributes": {
     "commands": [
-      {
-        "command": "coding-intelligence-x-xolvedai.startChat",
-        "title": "Coding Intelligence x XolvedAI: Open Agent Chat"
-      }
+      { "command": "coding-intelligence-x-xolvedai.startChat", "title": "Coding Intelligence x XolvedAI: Open Agent Chat" },
+      { "command": "coding-intelligence-x-xolvedai.refreshMemory", "title": "Coding Intelligence x XolvedAI: Refresh XolvedAI Memory" }
     ],
     "keybindings": [
-      {
-        "command": "coding-intelligence-x-xolvedai.startChat",
-        "key": "ctrl+shift+g",
-        "mac": "cmd+shift+g"
-      }
-    ],
-    "configuration": {
-      "title": "Coding Intelligence x XolvedAI",
-      "properties": {
-        "coding-intelligence-x-xolvedai.model": {
-          "type": "string",
-          "default": "grok-4.20-reasoning",
-          "enum": ["grok-4.20-reasoning", "grok-4.20-non-reasoning", "grok-4-1-fast-reasoning"],
-          "description": "Default Grok model"
-        }
-      }
-    }
+      { "command": "coding-intelligence-x-xolvedai.startChat", "key": "ctrl+shift+g", "mac": "cmd+shift+g" }
+    ]
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
