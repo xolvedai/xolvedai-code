@@ -2,38 +2,15 @@
   "name": "coding-intelligence-x-xolvedai",
   "displayName": "Coding Intelligence x XolvedAI",
   "publisher": "xolvedai",
-  "version": "1.9.2",
-  "description": "Premium xAI Grok-powered agent for full-stack GitHub app development. Multi-file batch editing, native tool calling, vision, approval workflows, Plan/Act mode. Powered by Grok 4.20-reasoning.",
+  "version": "1.9.4",
+  "description": "Premium xAI Grok-powered agent for full-stack GitHub app development.",
   "license": "MIT",
-  "engines": {
-    "vscode": "^1.85.0"
-  },
-  "categories": [
-    "AI",
-    "Programming Languages",
-    "Snippets",
-    "Other"
-  ],
-  "keywords": [
-    "xai",
-    "xolvedai",
-    "grok",
-    "agentic",
-    "tool-calling",
-    "vision",
-    "cline",
-    "multi-file",
-    "fullstack",
-    "github-app"
-  ],
+  "engines": { "vscode": "^1.85.0" },
+  "categories": ["AI", "Programming Languages", "Snippets", "Other"],
+  "keywords": ["xai", "xolvedai", "grok", "agentic", "tool-calling", "vision", "cline"],
   "icon": "assets/logo.png",
-  "galleryBanner": {
-    "color": "#0a0a0a",
-    "theme": "dark"
-  },
-  "activationEvents": [
-    "onStartupFinished"
-  ],
+  "galleryBanner": { "color": "#0a0a0a", "theme": "dark" },
+  "activationEvents": ["onStartupFinished"],
   "main": "./out/extension.js",
   "repository": {
     "type": "git",
@@ -59,11 +36,7 @@
         "coding-intelligence-x-xolvedai.model": {
           "type": "string",
           "default": "grok-4.20-reasoning",
-          "enum": [
-            "grok-4.20-reasoning",
-            "grok-4.20-non-reasoning",
-            "grok-4-1-fast-reasoning"
-          ],
+          "enum": ["grok-4.20-reasoning", "grok-4.20-non-reasoning", "grok-4-1-fast-reasoning"],
           "description": "Default Grok model"
         }
       }
@@ -75,13 +48,11 @@
     "watch": "tsc -watch -p ./",
     "package": "vsce package"
   },
-  "dependencies": {
-    "openai": "^4.85.0"
-  },
+  "dependencies": { "openai": "^4.85.0" },
   "devDependencies": {
-    "@types/node": "^20.19.39",
     "@types/vscode": "^1.85.0",
-    "@vscode/vsce": "^3.2.0",
-    "typescript": "^5.7.0"
+    "@types/node": "^20.17.0",
+    "typescript": "^5.7.0",
+    "@vscode/vsce": "^3.2.0"
   }
 }
