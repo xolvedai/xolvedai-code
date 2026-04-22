@@ -2,12 +2,12 @@
   "name": "coding-intelligence-x-xolvedai",
   "displayName": "Coding Intelligence x XolvedAI",
   "publisher": "xolvedai",
-  "version": "1.9.5",
+  "version": "1.9.7",
   "description": "Premium xAI Grok-powered agent for full-stack GitHub app development. Multi-file batch editing, native tool calling, vision, approval workflows, Plan/Act mode.",
   "license": "MIT",
   "engines": { "vscode": "^1.85.0" },
   "categories": ["AI", "Programming Languages", "Snippets", "Other"],
-  "keywords": ["xai", "xolvedai", "grok", "agentic", "tool-calling", "vision", "cline", "multi-file"],
+  "keywords": ["xai", "xolvedai", "grok", "agentic", "tool-calling", "vision", "cline", "multi-file", "fullstack"],
   "icon": "assets/logo.png",
   "galleryBanner": { "color": "#0a0a0a", "theme": "dark" },
   "activationEvents": ["onStartupFinished"],
@@ -48,7 +48,10 @@
     "watch": "tsc -watch -p ./",
     "package": "vsce package"
   },
-  "dependencies": { "openai": "^4.85.0" },
+  "dependencies": {
+    "openai": "^4.85.0",
+    "dotenv": "^16.4.5"
+  },
   "devDependencies": {
     "@types/vscode": "^1.85.0",
     "@types/node": "^20.17.0",
