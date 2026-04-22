@@ -2,51 +2,23 @@
   "name": "coding-intelligence-x-xolvedai",
   "displayName": "Coding Intelligence x XolvedAI",
   "publisher": "xolvedai",
-  "version": "1.12.0",
-  "description": "Pure xAI Grok agentic assistant. Direct Responses API, full tool calling, file creation, uploads via Python bridge. No OpenAI dependency.",
+  "version": "1.12.2",
+  "description": "Pure xAI Grok agentic assistant. Direct Responses API, full tool calling, file creation, terminal, Python bridge uploads. No OpenAI dependency.",
   "license": "MIT",
-  "engines": {
-    "vscode": "^1.85.0"
-  },
-  "categories": [
-    "AI",
-    "Programming Languages",
-    "Snippets",
-    "Other"
-  ],
-  "keywords": [
-    "xai",
-    "xolvedai",
-    "grok",
-    "agentic",
-    "tool-calling"
-  ],
+  "engines": { "vscode": "^1.85.0" },
+  "categories": ["AI", "Programming Languages", "Snippets", "Other"],
+  "keywords": ["xai", "xolvedai", "grok", "agentic", "tool-calling"],
   "icon": "assets/logo.png",
-  "galleryBanner": {
-    "color": "#0a0a0a",
-    "theme": "dark"
-  },
-  "activationEvents": [
-    "onStartupFinished"
-  ],
+  "galleryBanner": { "color": "#0a0a0a", "theme": "dark" },
+  "activationEvents": ["onStartupFinished"],
   "main": "./out/extension.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/xolvedai/xolvedai-code.git"
-  },
+  "repository": { "type": "git", "url": "https://github.com/xolvedai/xolvedai-code.git" },
   "contributes": {
     "commands": [
-      {
-        "command": "coding-intelligence-x-xolvedai.startChat",
-        "title": "Coding Intelligence x XolvedAI: Open Agent Chat"
-      }
+      { "command": "coding-intelligence-x-xolvedai.startChat", "title": "Coding Intelligence x XolvedAI: Open Agent Chat" }
     ],
     "keybindings": [
-      {
-        "command": "coding-intelligence-x-xolvedai.startChat",
-        "key": "ctrl+shift+g",
-        "mac": "cmd+shift+g"
-      }
+      { "command": "coding-intelligence-x-xolvedai.startChat", "key": "ctrl+shift+g", "mac": "cmd+shift+g" }
     ]
   },
   "scripts": {
@@ -59,9 +31,9 @@
     "dotenv": "^16.4.5"
   },
   "devDependencies": {
-    "@types/node": "^20.17.0",
     "@types/vscode": "^1.85.0",
-    "@vscode/vsce": "^3.2.0",
-    "typescript": "^5.7.0"
+    "@types/node": "^20.17.0",
+    "typescript": "^5.7.0",
+    "@vscode/vsce": "^3.2.0"
   }
 }

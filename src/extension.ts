@@ -7,8 +7,6 @@ import { promisify } from 'node:util';
 
 const execFileAsync = promisify(execFile);
 
-let client: any = null;
-
 function getApiKey(workspaceRoot?: string): string {
   let apiKey = process.env.XAI_API_KEY;
   if (!apiKey && workspaceRoot) {
@@ -18,7 +16,7 @@ function getApiKey(workspaceRoot?: string): string {
       apiKey = envConfig.XAI_API_KEY;
     }
   }
-  if (!apiKey) throw new Error('XAI_API_KEY not found. Set as env var or in .env.local');
+  if (!apiKey) throw new Error('XAI_API_KEY not found');
   return apiKey;
 }
 
@@ -28,23 +26,8 @@ function loadXolvedAIMemory(workspaceRoot?: string): string {
   return fs.existsSync(memoryPath) ? fs.readFileSync(memoryPath, 'utf-8') : 'You are Grok running full XolvedAI Adaptive Intelligence (AiOS v2.3).';
 }
 
-// Python Bridge (your exact code)
-const MAX_PYTHON_OUTPUT_BUFFER = 10 * 1024 * 1024;
-async function runPythonBridge(kind: 'media' | 'upload', apiKey: string, args: string[]): Promise<any> {
-  try {
-    const scriptPath = process.env[`XAI_${kind.toUpperCase()}_BRIDGE_PATH`] || `${process.cwd()}/scripts/xai_${kind}_bridge.py`;
-    const { stdout } = await execFileAsync(process.env.PYTHON_BIN || 'python3', [scriptPath, ...args], {
-      env: { ...process.env, XAI_API_KEY: apiKey, XAI_MANAGEMENT_API_KEY: process.env.XAI_MANAGEMENT_API_KEY || apiKey },
-      maxBuffer: MAX_PYTHON_OUTPUT_BUFFER,
-    });
-    return JSON.parse(stdout);
-  } catch (e: any) {
-    throw new Error(`Python bridge (${kind}) failed: ${e.stderr || e.message}`);
-  }
-}
-
 export function activate(context: vscode.ExtensionContext) {
-  console.log('✅ Coding Intelligence x XolvedAI v1.12.0 PURE XAI AGENTIC — Full Tool Calling + Uploads');
+  console.log('✅ Coding Intelligence x XolvedAI v1.12.2 PURE XAI AGENTIC');
 
   const startChat = vscode.commands.registerCommand('coding-intelligence-x-xolvedai.startChat', () => {
     const workspaceFolders = vscode.workspace.workspaceFolders;
@@ -73,22 +56,19 @@ export function activate(context: vscode.ExtensionContext) {
             model: 'grok-4.20-reasoning',
             input: [{ role: 'system', content: memory }, ...messages],
             tools: [
-              { type: 'function', function: { name: 'list_files', description: 'List files', parameters: { type: 'object', properties: { path: { type: 'string' } } } } },
-              { type: 'function', function: { name: 'read_file', description: 'Read file', parameters: { type: 'object', properties: { filePath: { type: 'string' } } } } },
-              { type: 'function', function: { name: 'write_file', description: 'Write file', parameters: { type: 'object', properties: { filePath: { type: 'string' }, content: { type: 'string' } } } } },
-              { type: 'function', function: { name: 'create_directory', description: 'Create directory', parameters: { type: 'object', properties: { dirPath: { type: 'string' } } } } },
-              { type: 'function', function: { name: 'run_terminal', description: 'Run terminal command', parameters: { type: 'object', properties: { command: { type: 'string' } } } } },
-              { type: 'function', function: { name: 'upload_document', description: 'Upload file to xAI', parameters: { type: 'object', properties: { filePath: { type: 'string' }, kind: { type: 'string', enum: ['media', 'upload'] } } } } }
+              { type: "function", name: "list_files", description: "List files and directories", parameters: { type: "object", properties: { path: { type: "string" } } } },
+              { type: "function", name: "read_file", description: "Read file content", parameters: { type: "object", properties: { filePath: { type: "string" } } } },
+              { type: "function", name: "write_file", description: "Write/overwrite file", parameters: { type: "object", properties: { filePath: { type: "string" }, content: { type: "string" } } } },
+              { type: "function", name: "create_directory", description: "Create directory", parameters: { type: "object", properties: { dirPath: { type: "string" } } } },
+              { type: "function", name: "run_terminal", description: "Run terminal command", parameters: { type: "object", properties: { command: { type: "string" } } } },
+              { type: "function", name: "upload_document", description: "Upload file via Python bridge", parameters: { type: "object", properties: { filePath: { type: "string" }, kind: { type: "string", enum: ["media", "upload"] } } } }
             ],
             stream: true,
           };
 
           const res = await fetch('https://api.x.ai/v1/responses', {
             method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              Authorization: `Bearer ${apiKey}`
-            },
+            headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
             body: JSON.stringify(body),
           });
 
@@ -117,7 +97,7 @@ function getWebviewContent(): string {
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Coding Intelligence x XolvedAI (Pure xAI)</title>
+  <title>Coding Intelligence x XolvedAI</title>
   <style>
     body { font-family: system-ui; margin:0; padding:0; background:#0a0a0a; color:#fff; height:100vh; display:flex; flex-direction:column; }
     #header { background:linear-gradient(90deg,#00d4ff,#a020f0); padding:12px 20px; font-weight:700; }
@@ -131,10 +111,10 @@ function getWebviewContent(): string {
   </style>
 </head>
 <body>
-  <div id="header">∞ Coding Intelligence x XolvedAI — Pure xAI Agentic (Full Tools + Uploads)</div>
+  <div id="header">∞ Coding Intelligence x XolvedAI — Pure xAI Agentic v1.12.2</div>
   <div id="chat"></div>
   <div id="input-area">
-    <input id="input" type="text" placeholder="Ask Grok to create the full intelligence folder..." />
+    <input id="input" type="text" placeholder="Ask Grok to create the full xolvedai-intelligence folder..." />
     <button onclick="sendMessage()">Send</button>
   </div>
   <script>
