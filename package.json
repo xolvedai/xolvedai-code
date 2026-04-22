@@ -2,7 +2,7 @@
   "name": "coding-intelligence-x-xolvedai",
   "displayName": "Coding Intelligence x XolvedAI",
   "publisher": "xolvedai",
-  "version": "1.9.7",
+  "version": "1.9.8",
   "description": "Premium xAI Grok-powered agent for full-stack GitHub app development. Multi-file batch editing, native tool calling, vision, approval workflows, Plan/Act mode.",
   "license": "MIT",
   "engines": { "vscode": "^1.85.0" },
